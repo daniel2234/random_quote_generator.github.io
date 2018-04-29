@@ -1,0 +1,58 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h2 {
+  text-align : center
+}
+
+.styled-message-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.styled-tweet-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.styled-message-button:hover {background-color: #3e8e41}
+.styled-tweet-button:hover {background-color: #3e8e41}
+
+.container-fluid {
+  margin: 0 auto;
+  width: 350px;
+  border-radius: 12px;
+}
+
+#response-quote {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+#response-author {
+  text-align:right;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+

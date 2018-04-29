@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote Generator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script src="js/index.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+
+    $(document).ready(function(){
+      $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
+         .done(update)
+
+        $("#getMessage").click(function(){
+            $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
+             .done(update)
+        })
+    })
+
+    function update(response) {
+      var stringValue = JSON.stringify(response.quoteAuthor)
+      stringValue = stringValue.replace(/"/g,"");
+      $("#response-quote").html(JSON.stringify(response.quoteText))
+      $("#response-author").html("-" +stringValue)
+
+      var tweetQuote = document.getElementById('response-quote').innerHTML
+      var tweetAuthor = document.getElementById('response-author').innerHTML
+      $("#tweet").attr("href", "https://twitter.com/intent/tweet?text="+ tweetQuote+ "  " +tweetAuthor)
+    }
+
+  </script>
+</head>
+<body>
+<div class="container-fluid" style="background-color: red; ">
+  <div class = "row text-center">
+    <h2>Random Quote Generator</h2>
+  </div>
+  <div class = "row text-center">
+    <div class = "col-xs-12 well message">
+      <div id="response-quote"></div>
+      <div id="response-author"></div>
+    </div>
+  </div>
+  <div class = "row text-center">
+    <div class = "col-xs-12" style="text-align:right;">
+      <button id = "getMessage" class = "btn btn-primary styled-message-button">
+        Get Message
+      </button>
+      <button class = "btn btn-primary styled-tweet-button">
+        <a id = "tweet" class="twitter-share-button" href="https://twitter.com/intent/tweet">
+        Tweet
+      </a>
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
